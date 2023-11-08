@@ -425,5 +425,4 @@ node_modules/vuex/types/helpers.d.ts
 node_modules/vuex/types/index.d.ts
 node_modules/vuex/types/logger.d.ts
 node_modules/vuex/types/vue.d.ts
-package-lock.json
-package.json
+
