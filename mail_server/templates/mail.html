@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenue</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            font-size: 18px;
+        }
+        .button {
+            display: inline-block;
+            font-size: 16px;
+            color: #fff;
+            background: #28a745;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Bienvenue, {{ username }}!</h1>
+    <p>Vos informations de connexion sont les suivantes:</p>
+    <p><strong>Identifiant:</strong> {{ username }}</p>
+    <p><strong>Mot de passe:</strong> {{ password }}</p>
+    <p>Veuillez changer votre mot de passe dès que possible après votre première connexion.</p>
+    <a href="#" class="button">Se connecter</a>
+</div>
+</body>
+</html>

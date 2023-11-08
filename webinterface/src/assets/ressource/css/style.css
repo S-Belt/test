@@ -1,0 +1,23 @@
+@font-face {
+    font-family: 'BrunoAceSC';
+    src: url('../font/BrunoAceSC-Regular.ttf') format('truetype');
+}
+
+body {
+    font-family: 'BrunoAceSC', regular;
+    background: #FFF;
+}
+
+h3 {
+    position: relative;
+    cursor: pointer;
+}
+
+h3 i.fas.fa-chevron-down {
+    margin-left: 5px; /* Espace entre le texte et l'icône */
+  transition: transform 0.2s; /* Animation de rotation */
+}
+
+h3 i.fas.fa-chevron-down.rotate {
+    transform: rotate(180deg); /* Rotation lorsque l'icône est en rotation */
+}

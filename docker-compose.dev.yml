@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    volumes:
+      - ./api:/app
+      - deps_volume:/app/deps
+      - build_volume:/app/_build
+    ports:
+      - "4000:4000"
+    env_file:
+      - ./.env
+    depends_on:
+      - db
+  mail_server:
+    build: ./mail_server
+    env_file:
+      - ./.env
+    volumes:
+      - mail_server_data:/mail_server_data
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+  db:
+    image: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: training_api_dev
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+  web_interface:
+    build:
+      context: ./webinterface
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - api
+volumes:
+  postgres_data:
+  deps_volume:
+  build_volume:
+  mail_server_data:

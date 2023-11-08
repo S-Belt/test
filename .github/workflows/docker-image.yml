@@ -1,0 +1,33 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      working-directory: training_api
+    
+    - name: Push Docker image
+      run: | # Pas oublier de remplacer les logs dans les fichiers secrets, voir plus bas
+        docker login -u beltadzes@gmail.com -p serrusurss
+        docker push my-image-name:$(date +%s)
+      env:
+        DOCKER_CLI_AKZEPTIEREN: "1"
+
+    # - name: Push Docker image
+    #   run: |
+    #     echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
+    #     docker push my-image-name:$(date +%s)
+    #   env:
+    #     DOCKER_CLI_AKZEPTIEREN: "1"

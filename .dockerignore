@@ -1,0 +1,39 @@
+# Ignore all logs
+/logs/*
+
+# Ignore compiled files
+/_build
+/deps
+/*.ez
+
+# Ignore the local configuration file
+config/*.secret.exs
+
+# Ignore test files and directories
+/test
+/cover
+
+# Ignore version control directories
+.git
+.gitignore
+
+# Ignore other unneeded files
+*.md
+LICENSE
+.dockerignore
+Dockerfile
+*.sh
+
+# Ignore Node.js artifacts
+/node_modules
+
+# Ignore Elixir artifacts
+*.beam
+*.plt
+*.lock
+
+# Ignore the database file if there's one locally
+*.sqlite3
+
+# Ignore files created by the Elixir build tool
+#mix.lock
